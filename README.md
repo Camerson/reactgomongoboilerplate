@@ -8,6 +8,7 @@ This is a boilerplate project that includes a React/Redux application, Golang AP
 - Redux
 - React Redux
 - Redux Persist
+- Axios (for fetching API endpoints)
 
 #### This boilerplate includes the following functionalities on the frontend:
 1. Layouts for different pages.
