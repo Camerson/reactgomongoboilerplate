@@ -42,7 +42,6 @@ class Contact extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        console.log(this.state.newcontact)
         this.setState({
             newcontact: {
                 name: '',

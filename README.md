@@ -30,7 +30,9 @@ This is a boilerplate project that includes a React/Redux application, Golang AP
         1. Text input
         2. Checkbox input
         3. Toggle show password
-    2. Submitting form (not to database)    
+    2. Submitting form
+        1. On Contact Page, this does not submit to database
+        2. Todo table on home page submits to MongoDB   
     3. Show success message that hides after 3 seconds after form is submitted
 
 #### This boilerplate includes the following Golang libraries

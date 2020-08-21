@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios'
 import {config} from '../config'
+import Header from "./header";
+import Main from "../layouts/main";
 
 export default class Todos extends React.Component {
     constructor(props){
@@ -10,12 +12,14 @@ export default class Todos extends React.Component {
             newtodo: {
                 title: '',
                 description: ''
-            }
+            },
+            submitted: false,
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.markCompleted = this.markCompleted.bind(this);
         this.deleteTodo = this.deleteTodo.bind(this);
+        this.updateSubmitted = this.updateSubmitted.bind(this);
     }
 
     handleChange = e => {
@@ -23,6 +27,10 @@ export default class Todos extends React.Component {
         let name = e.target.name;
         newtodo[name] = e.target.value;
         this.setState({newtodo})
+    }
+
+    updateSubmitted = () => {
+        this.setState({submitted: false})
     }
 
     handleSubmit = e => {
@@ -35,6 +43,8 @@ export default class Todos extends React.Component {
                         title: '',
                         description: ''
                     }
+                }, () => {
+                    setTimeout(this.updateSubmitted, 3000)
                 })
             })
             .catch(err => {
@@ -83,6 +93,7 @@ export default class Todos extends React.Component {
         return (
             <div style={{display: 'flex'}}>
                 <form onSubmit={this.handleSubmit}>
+                    {this.state.submitted ? <p>Created Todo</p> : ''}
                     <div>
                         <label>Title</label>
                         <input
